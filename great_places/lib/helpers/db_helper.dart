@@ -1,6 +1,4 @@
-import 'dart:ffi';
 
-import 'package:great_places/models/place.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -13,7 +11,7 @@ class DBHelper {
       version: 1,
       onCreate: (Database db, int version) async {
         await db.execute(
-            'CREATE TABLE user_places (id TEXT PRIMARY KEY, title TEXT, image TEXT, location TEXT)');
+            'CREATE TABLE user_places (id TEXT PRIMARY KEY, title TEXT, image TEXT, loc_lat REAL, loc_lng REAL, address TEXT)');
       }, 
     );
     return sqlDb;

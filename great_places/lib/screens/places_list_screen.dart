@@ -20,7 +20,8 @@ class PlacesListScreen extends StatelessWidget {
                 size: 35,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, AddPlaceScreen.routName);
+                Navigator.pushNamed(context, 
+                 AddPlaceScreen.routName);
               },
             ),
             const SizedBox(
@@ -29,17 +30,25 @@ class PlacesListScreen extends StatelessWidget {
           ],
         ),
         body: FutureBuilder(
-            future: context.read<GreatPlaces>().fetchAndSetPlaces(),
+            future: context.read<GreatPlaces> 
+             ().fetchAndSetPlaces(),
             builder: (context, snapshot) {
               return ListView.builder(
-                itemCount: context.watch<GreatPlaces>().items.length,
+                itemCount: context.watch<GreatPlaces> 
+                 ().items.length,
                 itemBuilder: (context, index) => ListTile(
                   leading: CircleAvatar(
                     backgroundImage: FileImage(
-                        context.watch<GreatPlaces>().items[index].image),
+                        context.watch<GreatPlaces> 
+                         ().items[index].image),
                   ),
                   title: Text(
-                    context.watch<GreatPlaces>().items[index].title,
+                    context.watch<GreatPlaces> 
+                     ().items[index].title,
+                  ),
+                  subtitle: Text(
+                    context.watch<GreatPlaces> 
+                     ().items[index].location.address,
                   ),
                   onTap: () {
                     // Go to detail page ...
